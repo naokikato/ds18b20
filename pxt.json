@@ -1,7 +1,7 @@
 {
     "name": "DS18B20",
     "version": "0.0.1",
-    "description": "",
+    "description": "TFabWorks 水温計 （TFW-AD-TP1 (DS18B20) ）",
     "dependencies": {
         "core": "*",
         "radio": "*",
@@ -17,7 +17,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "7.0.42",
+        "target": "7.0.51",
         "targetId": "microbit"
     },
     "supportedTargets": [

@@ -1,20 +1,16 @@
 /**
-* このファイルを使って、独自の関数やブロックを定義してください。
-* 詳しくはこちらを参照してください：https://makecode.microbit.org/blocks/custom
-*/
-
-enum MyEnum {
-    //% block="one"
-    One,
-    //% block="two"
-    Two
-}
-
-/**
  * Custom blocks
  */
 //% weight=100 color=#0fbc11 icon="" block="水温計"
-namespace IMLwatertemp {
+namespace IML_watertemp {
+
+    //% block
+    //% block="水温 %pin"
+    //% weight=100   
+    export function getWaterTemp(pin: DigitalPin): number {
+        oneWirePin = pin
+        return Math.round(readTemperature() * 10.0) / 10.0
+    }
 
     // DS18B20センサーが接続されているピン (GROVEインタフェースの1ピンを指定)
     let oneWirePin = DigitalPin.P0
@@ -22,14 +18,6 @@ namespace IMLwatertemp {
     // センサーのROMコマンドと機能コマンド
     let CONVERT_T = 0x44
     let READ_SCRATCHPAD = 0xBE
-
-    //% block
-    //% block="水温 %pin"
-    //% weight=100   
-    export function getWaterTemp(pin: DigitalPin): number {
-        oneWirePin = pin
-        return Math.round(readTemperature()*10.0)/10.0
-    }
 
     // DS18B20に1-Wireリセット信号を送る関数
     function oneWireReset(): boolean {
@@ -118,6 +106,3 @@ namespace IMLwatertemp {
         return temp * 0.0625
     }
 }
-
-
-
